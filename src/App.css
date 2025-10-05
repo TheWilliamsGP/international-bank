@@ -152,6 +152,9 @@ body {
 }
 
 .dashboard header h1 {
+  max-width: 1000px; /* ensures same width for both dashboards */
+  margin: 0 auto; /* centers content */
+  padding: 20px;
   font-size: 24px;
   color: var(--color-accent-2);
 }
@@ -163,6 +166,10 @@ body {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
 }
 
 .dashboard-content {
@@ -231,6 +238,32 @@ body {
   color: var(--color-bg-main);
   transition: background-color 0.2s ease, color 0.2s ease;
 }
+
+.transfer-form {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid white;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.transfer-form h2 {
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 
 /* Status labels */
 .status.pending {
