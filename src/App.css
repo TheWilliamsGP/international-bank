@@ -325,35 +325,6 @@ body {
     overflow-x: auto;
   }
 
-
-  /* Error styles */
-/* General error text color */
-.error-text,
-.error-message {
-  color: #ff4d4d; /* bright red for visibility */
-  font-size: 0.9rem;
-  margin-top: 4px;
-  display: block;
-}
-
-/* Highlight input borders when invalid */
-input.error {
-  border: 1.5px solid #ff4d4d;
-  background-color: #fff5f5;
-}
-
-/* Optional: add a subtle fade-in for errors */
-.error-text,
-.error-message {
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-
 .password-requirements {
   font-size: 0.75rem;
   color: #666;
@@ -372,3 +343,36 @@ button:disabled {
   cursor: not-allowed;
 }
 }
+
+
+
+/* ===== UNIVERSAL ERROR TEXT FIX ===== */
+.error-text,
+.error-message,
+.form-group .error-text,
+.form-group .error-message {
+  color: #ff4d4d !important; /* force red */
+  font-weight: 500;
+  font-size: 0.95rem;
+  margin-top: 4px;
+  display: block;
+}
+
+/* Highlight invalid inputs */
+input.error,
+select.error,
+textarea.error {
+  border: 1.5px solid #ff4d4d !important;
+  background-color: #fff5f5 !important;
+}
+
+/* Optional: subtle fade-in for better UX */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.error-text,
+.error-message {
+  animation: fadeIn 0.3s ease-in-out;
+}
+

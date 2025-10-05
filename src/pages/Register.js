@@ -124,9 +124,7 @@ const Register = () => {
             className={errors.password ? 'error' : ''}
           />
           {errors.password && <span className="error-text">{errors.password}</span>}
-          <div className="password-requirements">
-            Must contain: 8+ characters, uppercase, lowercase, number, special character
-          </div>
+          
         </div>
         
         <div className="form-group">
