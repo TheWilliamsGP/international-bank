@@ -102,6 +102,30 @@ body {
   color: var(--color-bg-main);
 }
 
+.auth-link {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 1rem; /* slightly bigger than normal text */
+  color: #ffffff;
+}
+
+.auth-link a {
+  color: #5bc0ff; /* light blue */
+  text-decoration: none; /* remove underline */
+  font-size: 1.05rem; /* slightly larger to stand out */
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.auth-link a:hover,
+.auth-link a:focus,
+.auth-link a:active {
+  color: #5bc0ff; /* stay light blue even when active or hovered */
+  text-decoration: none;
+  outline: none;
+}
+
+
 .error-message {
   color: var(--color-text-dark);
   background-color: var(--color-error);
