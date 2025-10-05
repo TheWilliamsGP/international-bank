@@ -126,13 +126,13 @@ body {
 }
 
 
-.error-message {
+/* .error-message {
   color: var(--color-text-dark);
   background-color: var(--color-error);
   padding: 10px;
   border-radius: 4px;
   margin-bottom: 15px;
-}
+} */
 
 
 /* Dashboard */
@@ -327,16 +327,32 @@ body {
 
 
   /* Error styles */
-.error {
-  border-color: #ff3860 !important;
-}
-
-.error-text {
-  color: #ff3860;
-  font-size: 0.875rem;
-  margin-top: 0.25rem;
+/* General error text color */
+.error-text,
+.error-message {
+  color: #ff4d4d; /* bright red for visibility */
+  font-size: 0.9rem;
+  margin-top: 4px;
   display: block;
 }
+
+/* Highlight input borders when invalid */
+input.error {
+  border: 1.5px solid #ff4d4d;
+  background-color: #fff5f5;
+}
+
+/* Optional: add a subtle fade-in for errors */
+.error-text,
+.error-message {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 
 .password-requirements {
   font-size: 0.75rem;
