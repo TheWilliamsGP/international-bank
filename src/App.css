@@ -135,6 +135,7 @@ body {
 }
 
 /* Dashboard */
+/* Dashboard */
 .dashboard {
   min-height: 100vh;
   background-color: var(--color-bg-main);
@@ -166,7 +167,7 @@ body {
 
 .dashboard-content {
   padding: 30px;
-  max-width: 1200px;
+  max-width: 1200px; /* same width for both Admin and Customer dashboards */
   margin: 0 auto;
 }
 
@@ -191,7 +192,7 @@ body {
   color: var(--color-bg-main);
 }
 
-/* Transfer Form */
+/* Transfer Form & Transactions Table: same width */
 .transfer-form,
 .transactions table {
   width: 100%;
@@ -200,13 +201,14 @@ body {
   border: 1px solid var(--color-text-light); /* thin white outer border */
   background-color: var(--color-bg-secondary);
   border-radius: 6px;
+  margin-top: 20px; /* give spacing from above content */
 }
 
 .transactions th,
 .transactions td {
-  padding: 16px 19px;              /* 12 + 4 px more spacing */
+  padding: 16px 19px;              /* cell padding */
   text-align: left;
-  border: 1px solid var(--color-text-light); /* thin white cell outlines */
+  border: 1px solid var(--color-text-light);
   color: var(--color-text-light);
 }
 
@@ -230,6 +232,7 @@ body {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+/* Status labels */
 .status.pending {
   background-color: var(--color-warning);
   color: var(--color-text-dark);
@@ -245,7 +248,7 @@ body {
   color: var(--color-text-light);
 }
 
-
+/* Approve/Reject buttons */
 .approve-btn,
 .reject-btn {
   padding: 5px 10px;
@@ -279,6 +282,8 @@ body {
   .transactions {
     overflow-x: auto;
   }
+
+
   /* Error styles */
 .error {
   border-color: #ff3860 !important;
