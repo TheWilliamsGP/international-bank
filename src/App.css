@@ -178,6 +178,12 @@ body {
   margin: 0 auto;
 }
 
+.dashboard-inner {
+  max-width: 1200px; /* same as AdminDashboard table width */
+  margin: 0 auto;    /* center it */
+  width: 100%;
+}
+
 .dashboard .primary-btn {
   margin: 9px 10px;
 }
@@ -239,13 +245,15 @@ body {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.transfer-form {
+.transfer-form,
+.transactions table {
   width: 100%;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid white;
-  border-radius: 8px;
-  padding: 20px;
-  margin-top: 20px;
+  border-collapse: separate;
+  border-spacing: 4px;
+  border: 1px solid var(--color-text-light);
+  background-color: var(--color-bg-secondary);
+  border-radius: 6px;
+  margin: 20px 0; /* spacing above and below */
 }
 
 .transfer-form h2 {

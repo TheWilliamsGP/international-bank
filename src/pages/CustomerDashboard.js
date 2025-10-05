@@ -369,146 +369,151 @@ const CustomerDashboard = () => {
         </button>
       </div>
 
-      {showTransferForm && (
-        <form className="transfer-form" onSubmit={handleTransferSubmit}>
-          <h2>International Money Transfer</h2>
+      <div className="dashboard-content">
+        {/* Centered inner container for form and table */}
+        <div className="dashboard-inner">
+          {showTransferForm && (
+            <form className="transfer-form" onSubmit={handleTransferSubmit}>
+              <h2>International Money Transfer</h2>
 
-          <div className="form-row">
-            <div className="form-group">
-              <label>Recipient Name</label>
-              <input
-                type="text"
-                name="recipientName"
-                value={transferData.recipientName}
-                onChange={handleTransferChange}
-                className={errors.recipientName ? 'error' : ''}
-              />
-              {errors.recipientName && <span className="error-text">{errors.recipientName}</span>}
-            </div>
+              <div className="form-row">
+                <div className="form-group">
+                  <label>Recipient Name</label>
+                  <input
+                    type="text"
+                    name="recipientName"
+                    value={transferData.recipientName}
+                    onChange={handleTransferChange}
+                    className={errors.recipientName ? 'error' : ''}
+                  />
+                  {errors.recipientName && <span className="error-text">{errors.recipientName}</span>}
+                </div>
 
-            <div className="form-group">
-              <label>Recipient Bank</label>
-              <input
-                type="text"
-                name="recipientBank"
-                value={transferData.recipientBank}
-                onChange={handleTransferChange}
-                className={errors.recipientBank ? 'error' : ''}
-              />
-              {errors.recipientBank && <span className="error-text">{errors.recipientBank}</span>}
-            </div>
+                <div className="form-group">
+                  <label>Recipient Bank</label>
+                  <input
+                    type="text"
+                    name="recipientBank"
+                    value={transferData.recipientBank}
+                    onChange={handleTransferChange}
+                    className={errors.recipientBank ? 'error' : ''}
+                  />
+                  {errors.recipientBank && <span className="error-text">{errors.recipientBank}</span>}
+                </div>
+              </div>
+
+              <div className="form-row">
+                <div className="form-group">
+                  <label>SWIFT/BIC</label>
+                  <input
+                    type="text"
+                    name="swiftCode"
+                    value={transferData.swiftCode}
+                    onChange={handleTransferChange}
+                    className={errors.swiftCode ? 'error' : ''}
+                  />
+                  {errors.swiftCode && <span className="error-text">{errors.swiftCode}</span>}
+                </div>
+
+                <div className="form-group">
+                  <label>Account Number</label>
+                  <input
+                    type="text"
+                    name="accountNumber"
+                    value={transferData.accountNumber}
+                    onChange={handleTransferChange}
+                    className={errors.accountNumber ? 'error' : ''}
+                  />
+                  {errors.accountNumber && <span className="error-text">{errors.accountNumber}</span>}
+                </div>
+              </div>
+
+              <div className="form-group">
+                <label>Amount (USD)</label>
+                <input
+                  type="number"
+                  name="amount"
+                  value={transferData.amount}
+                  onChange={handleTransferChange}
+                  className={errors.amount ? 'error' : ''}
+                />
+                {errors.amount && <span className="error-text">{errors.amount}</span>}
+              </div>
+
+              <h3>Card Details</h3>
+              <div className="form-row">
+                <div className="form-group">
+                  <label>Card Number</label>
+                  <input
+                    type="text"
+                    name="cardNumber"
+                    value={transferData.cardNumber}
+                    onChange={handleTransferChange}
+                    className={errors.cardNumber ? 'error' : ''}
+                  />
+                  {errors.cardNumber && <span className="error-text">{errors.cardNumber}</span>}
+                </div>
+
+                <div className="form-group">
+                  <label>Expiry</label>
+                  <input
+                    type="text"
+                    name="cardExpiry"
+                    placeholder="MM/YY"
+                    value={transferData.cardExpiry}
+                    onChange={handleTransferChange}
+                    className={errors.cardExpiry ? 'error' : ''}
+                  />
+                  {errors.cardExpiry && <span className="error-text">{errors.cardExpiry}</span>}
+                </div>
+
+                <div className="form-group">
+                  <label>CVV</label>
+                  <input
+                    type="text"
+                    name="cardCvv"
+                    value={transferData.cardCvv}
+                    onChange={handleTransferChange}
+                    className={errors.cardCvv ? 'error' : ''}
+                  />
+                  {errors.cardCvv && <span className="error-text">{errors.cardCvv}</span>}
+                </div>
+              </div>
+
+              <button type="submit" className="primary-btn submit-btn">Send Money</button>
+            </form>
+          )}
+
+          <div className="transactions">
+            <h2>Your Transactions</h2>
+            {transactions.length === 0 ? (
+              <p>No transactions found.</p>
+            ) : (
+              <table className="transactions-table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Recipient</th>
+                    <th>Bank</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {transactions.map(tx => (
+                    <tr key={tx._id}>
+                      <td>{new Date(tx.createdAt).toLocaleDateString()}</td>
+                      <td>{tx.recipientName}</td>
+                      <td>{tx.recipientBank}</td>
+                      <td>${tx.amount}</td>
+                      <td className={`status ${tx.status}`}>{tx.status}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
           </div>
-
-          <div className="form-row">
-            <div className="form-group">
-              <label>SWIFT/BIC</label>
-              <input
-                type="text"
-                name="swiftCode"
-                value={transferData.swiftCode}
-                onChange={handleTransferChange}
-                className={errors.swiftCode ? 'error' : ''}
-              />
-              {errors.swiftCode && <span className="error-text">{errors.swiftCode}</span>}
-            </div>
-
-            <div className="form-group">
-              <label>Account Number</label>
-              <input
-                type="text"
-                name="accountNumber"
-                value={transferData.accountNumber}
-                onChange={handleTransferChange}
-                className={errors.accountNumber ? 'error' : ''}
-              />
-              {errors.accountNumber && <span className="error-text">{errors.accountNumber}</span>}
-            </div>
-          </div>
-
-          <div className="form-group">
-            <label>Amount (USD)</label>
-            <input
-              type="number"
-              name="amount"
-              value={transferData.amount}
-              onChange={handleTransferChange}
-              className={errors.amount ? 'error' : ''}
-            />
-            {errors.amount && <span className="error-text">{errors.amount}</span>}
-          </div>
-
-          <h3>Card Details</h3>
-          <div className="form-row">
-            <div className="form-group">
-              <label>Card Number</label>
-              <input
-                type="text"
-                name="cardNumber"
-                value={transferData.cardNumber}
-                onChange={handleTransferChange}
-                className={errors.cardNumber ? 'error' : ''}
-              />
-              {errors.cardNumber && <span className="error-text">{errors.cardNumber}</span>}
-            </div>
-
-            <div className="form-group">
-              <label>Expiry</label>
-              <input
-                type="text"
-                name="cardExpiry"
-                placeholder="MM/YY"
-                value={transferData.cardExpiry}
-                onChange={handleTransferChange}
-                className={errors.cardExpiry ? 'error' : ''}
-              />
-              {errors.cardExpiry && <span className="error-text">{errors.cardExpiry}</span>}
-            </div>
-
-            <div className="form-group">
-              <label>CVV</label>
-              <input
-                type="text"
-                name="cardCvv"
-                value={transferData.cardCvv}
-                onChange={handleTransferChange}
-                className={errors.cardCvv ? 'error' : ''}
-              />
-              {errors.cardCvv && <span className="error-text">{errors.cardCvv}</span>}
-            </div>
-          </div>
-
-          <button type="submit" className="primary-btn submit-btn">Send Money</button>
-        </form>
-      )}
-
-      <div className="transactions">
-        <h2>Your Transactions</h2>
-        {transactions.length === 0 ? (
-          <p>No transactions found.</p>
-        ) : (
-          <table className="transactions-table">
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Recipient</th>
-                <th>Bank</th>
-                <th>Amount</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {transactions.map(tx => (
-                <tr key={tx._id}>
-                  <td>{new Date(tx.createdAt).toLocaleDateString()}</td>
-                  <td>{tx.recipientName}</td>
-                  <td>{tx.recipientBank}</td>
-                  <td>${tx.amount}</td>
-                  <td className={`status ${tx.status}`}>{tx.status}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
+        </div>
       </div>
     </div>
   );
