@@ -164,18 +164,41 @@ body {
 
 /* Transfer Form */
 .transfer-form,
-.transactions {
-  background: var(--color-bg-secondary);
+.transactions table {
+  width: 100%;
+  border-collapse: separate;       /* allow spacing between cells */
+  border-spacing: 4px;             /* 4px gap between cells */
+  border: 1px solid var(--color-text-light); /* thin white outer border */
+  background-color: var(--color-bg-secondary);
+  border-radius: 6px;
+}
+
+.transactions th,
+.transactions td {
+  padding: 16px 19px;              /* 12 + 4 px more spacing */
+  text-align: left;
+  border: 1px solid var(--color-text-light); /* thin white cell outlines */
   color: var(--color-text-light);
-  padding: 20px;
-  border-radius: 8px;
-  border: 1px solid var(--color-accent-1);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 .transactions th {
   background-color: var(--color-bg-main);
   color: var(--color-accent-2);
+  font-weight: 600;
+}
+
+.transactions tr:nth-child(even) {
+  background-color: var(--color-bg-secondary);
+}
+
+.transactions tr:nth-child(odd) {
+  background-color: rgba(29, 45, 68, 0.85);
+}
+
+.transactions tr:hover {
+  background-color: var(--color-accent-1);
+  color: var(--color-bg-main);
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .status.pending {
