@@ -170,12 +170,17 @@ body {
   margin: 0 auto;
 }
 
+.dashboard .primary-btn {
+  margin: 5px 0;
+}
+
 /* Buttons */
 .primary-btn {
   padding: 10px 20px;
   background-color: var(--color-accent-1);
   color: var(--color-text-light);
   border: none;
+  margin: 2px 0;
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
