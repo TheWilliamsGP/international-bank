@@ -134,7 +134,7 @@ body {
   margin-bottom: 15px;
 }
 
-/* Dashboard */
+
 /* Dashboard */
 .dashboard {
   min-height: 100vh;
@@ -152,8 +152,8 @@ body {
 }
 
 .dashboard header h1 {
-  max-width: 1000px; /* ensures same width for both dashboards */
-  margin: 0 auto; /* centers content */
+  max-width: 1000px; 
+  margin: 0 auto; 
   padding: 20px;
   font-size: 24px;
   color: var(--color-accent-2);
@@ -174,13 +174,13 @@ body {
 
 .dashboard-content {
   padding: 30px;
-  max-width: 1200px; /* same width for both Admin and Customer dashboards */
-  margin: 0 auto;
+  max-width: 1200px; 
+  margin: 0 auto ;
 }
 
 .dashboard-inner {
-  max-width: 1200px; /* same as AdminDashboard table width */
-  margin: 0 auto;    /* center it */
+  max-width: 1200px; 
+  margin: 0 auto;    
   width: 100%;
 }
 
@@ -209,20 +209,21 @@ body {
 .transfer-form,
 .transactions table {
   width: 100%;
-  border-collapse: separate;       /* allow spacing between cells */
-  border-spacing: 4px;             /* 4px gap between cells */
-  border: 1px solid var(--color-text-light); /* thin white outer border */
+  border-collapse: separate;       
+  border-spacing: 10px;             
+  border: 1px solid var(--color-text-light); 
   background-color: var(--color-bg-secondary);
-  border-radius: 6px;
-  margin-top: 20px; /* give spacing from above content */
+  border-radius: 10px;
+  margin: 20px; 
 }
 
 .transactions th,
 .transactions td {
-  padding: 16px 19px;              /* cell padding */
-  text-align: left;
+  padding: 16px 19px;             
+  text-align: center;
   border: 1px solid var(--color-text-light);
   color: var(--color-text-light);
+  margin: 20px;
 }
 
 .transactions th {
@@ -253,7 +254,7 @@ body {
   border: 1px solid var(--color-text-light);
   background-color: var(--color-bg-secondary);
   border-radius: 6px;
-  margin: 20px 0; /* spacing above and below */
+  margin: 20px 0; 
 }
 
 .transfer-form h2 {
