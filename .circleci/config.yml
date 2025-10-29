@@ -4,19 +4,19 @@ orbs:
   node: circleci/node@5.0.0
 
 jobs:
-  build-frontend:
+  build-src:
     docker:
       - image: cimg/node:18.20
-    working_directory: ~/repo/frontend
+    working_directory: ~/repo/src
     steps:
       - checkout
       - node/install-packages:
           pkg-manager: npm
       - run:
-          name: Build frontend
+          name: Build src
           command: npm run build
       - run:
-          name: Run frontend tests
+          name: Run scr tests
           command: npm test -- --watchAll=false
 
   build-backend:
@@ -50,9 +50,10 @@ workflows:
   version: 2
   build_test_analyze:
     jobs:
-      - build-frontend
+      - build-src
       - build-backend
       - sonar-scan:
           requires:
-            - build-frontend
+            - build-src
             - build-backend
+
