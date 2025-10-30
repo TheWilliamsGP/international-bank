@@ -40,10 +40,10 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-- run:
-    name: Run SonarCloud Scan
-    command: |
-      sonar-scanner \
+      - run:
+        name: Run SonarCloud Scan
+        command: |
+         sonar-scanner \
         -Dsonar.projectKey=TheWilliamsGP_international-bank \
         -Dsonar.organization=thewilliamsgp \
         -Dsonar.sources=src,backend \
@@ -61,4 +61,5 @@ workflows:
           requires:
             - build-frontend
             - build-backend
+
 
