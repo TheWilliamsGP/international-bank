@@ -20,7 +20,6 @@ jobs:
           name: Run React tests
           command: npm test -- --watchAll=false || echo "No tests yet"
 
-
   build-backend:
     docker:
       - image: cimg/node:18.20
@@ -33,24 +32,22 @@ jobs:
           name: Run backend tests
           command: npm test || echo "No tests yet"
 
-
-sonar-scan:
-  docker:
-    - image: sonarsource/sonar-scanner-cli:latest
-  working_directory: ~/repo
-  steps:
-    - checkout
-    - run:
-        name: Run SonarCloud Scan
-        command: |
-          sonar-scanner \
-            -Dsonar.projectKey=TheWilliamsGP_international-bank \
-            -Dsonar.organization=thewilliamsgp \
-            -Dsonar.sources=src,backend \
-            -Dsonar.exclusions=**/node_modules/**,**/build/**,**/dist/** \
-            -Dsonar.host.url=https://sonarcloud.io \
-            -Dsonar.login=065dea64c6ef63c723337a19760c25be5611c2b5
-
+  sonar-scan:
+    docker:
+      - image: sonarsource/sonar-scanner-cli:latest
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: Run SonarCloud Scan
+          command: |
+            sonar-scanner \
+              -Dsonar.projectKey=TheWilliamsGP_international-bank \
+              -Dsonar.organization=thewilliamsgp \
+              -Dsonar.sources=src,backend \
+              -Dsonar.exclusions=**/node_modules/**,**/build/**,**/dist/** \
+              -Dsonar.host.url=https://sonarcloud.io \
+              -Dsonar.login=065dea64c6ef63c723337a19760c25be5611c2b5
 
 workflows:
   version: 2
@@ -62,6 +59,3 @@ workflows:
           requires:
             - build-frontend
             - build-backend
-
-
-
