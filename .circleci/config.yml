@@ -42,7 +42,7 @@ jobs:
           name: Run SonarCloud Scan
           command: |
             sonar-scanner \
-              -Dsonar.projectKey=TheWilliamsGP_international-bank \
+              -Dsonar.projectKey=TheWilliamsGP_international-bank2 \
               -Dsonar.organization=thewilliamsgp \
               -Dsonar.sources=src,backend \
               -Dsonar.exclusions=**/node_modules/**,**/build/**,**/dist/** \
